@@ -1,0 +1,61 @@
+#Banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13%;
+    height: 13%;
+}
+button{
+    background-color: #E50913;
+    border: none;
+}
+h1{
+    font-family: Bebas Neue;
+    font-size: 100px;
+    padding-left: 20px;
+    margin: 0;
+}
+h2{
+    margin: 0;
+    font-family: "Bebas Neue";
+    font-size: 50px;
+    padding-left: 35px;
+    color: whitesmoke;
+}
+
+#Filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    color: white;
+
+}
+body{
+    background-color: #101010;
+    color: #E50913;
+}
+table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+tr{
+    text-align: left;
+}
+th{
+    background-color: #E50913;
+    color: #101010;
+    text-align: center;
+}
+td{
+    background-color: whitesmoke;
+    color: #101010;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+#movieTitle{
+    text-align: left;
+    padding-left: 10px;
+}
