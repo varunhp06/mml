@@ -2,28 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Movies Oldest to Latest</title>
-    <img id="Banner" src="../../../../banner.jpg" alt="BingeBucketBanner">
+    <title>Movies Released Oldest to Latest</title>
     <link rel="icon" type="image/x-icon" href="../../../../favicon.png">
     <link rel="stylesheet" href="../../list.css">
+    <link rel="stylesheet" href="../../list.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="header">
+        <button id="Switch">Movies</button>
+        <button id="Donate">Donate</button>
+        <button id="LogIn">Log In</button>
+        <button id="SignUp">Sign Up</button>
+        <div id="dropSearch">
+            <div id="dropMenu">
+                <div class="RankDrop">
+                    <button class="dropRank">By Rank</button>
+                    <div class="dropRankContent">
+                        <a href="../../allMoviesByRank/allMoviesByRankAsc/allMoviesByRankAsc.html">Best to Worst</a>
+                        <a href="../../allMoviesByRank/allMoviesByRankDesc/allMoviesByRankDesc.html">Worst to Best</a>
+                    </div>
+                </div>
+                <div class="ScoreDrop">
+                    <button class="dropScore">By Score</button>
+                    <div class="dropScoreContent">
+                        <a href="../../allMoviesByScore/allMoviesByScoreAsc/allMoviesByScoreAsc.html">Low to High</a>
+                        <a href="../../allMoviesByScore/allMoviesByScoreDesc/allMoviesByScoreDesc.html">High to Low</a>
+                    </div>
+                </div>
+                <div class="YearDrop">
+                    <button class="dropYear">By Year</button>
+                    <div class="dropYearContent">
+                        <a href="allMoviesByYearAsc.html">Oldest to Latest</a>
+                        <a href="../allMoviesByYearDesc/allMoviesByYearDesc.html">Latest to Oldest</a>
+                    </div>
+                </div>
+            </div>
+            <form id="search">
+                <input id="searchBar" type="text">
+                <i id="magGlass" class="fa-solid fa-magnifying-glass"></i>
+            </form>
+        </div>
+    </div>
 </head>
 <body>
-<ul>
-    <li>Rank
-        <button id="Rank"></button>
-    </li>
-    <li>Title</li>
-    <li>Score
-        <button id="Score"></button>
-    </li>
-    <li>Length</li>
-    <li>Release Year
-        <button id="Year"></button>
-    </li>
-    <li>Rating</li>
-    <li>Box Office</li>
-</ul>
-<ol id="allMoviesByYearAsc"></ol>
+<h1>TOP 250 MOVIES</h1>
+<h2 id="category">By Year: Oldest to Latest</h2>
+<table>
+    <tr>
+        <th>Rank
+            <button id="RankButton"><i class="fa-solid fa-sort"></i></button>
+        </th>
+        <th>Title</th>
+        <th>Score
+            <button id="ScoreButton"><i class="fa-solid fa-sort"></i></button>
+        </th>
+        <th>Length</th>
+        <th>Year
+            <button id="YearButton"><i class="fa-solid fa-sort-down"></i></button>
+        </th>
+        <th>Rating</th>
+        <th>Box Office</th>
+    </tr>
+    <tr>
+        <td id="movieRank"></td>
+        <td id="movieTitle"></td>
+        <td id="movieScore"></td>
+        <td id="movieLength"></td>
+        <td id="movieYear"></td>
+        <td id="movieRating"></td>
+        <td id="movieBoxOffice"></td>
+    </tr>
+</table>
 <script src="allMoviesByYearAsc.js"></script>
 </body>
 </html>

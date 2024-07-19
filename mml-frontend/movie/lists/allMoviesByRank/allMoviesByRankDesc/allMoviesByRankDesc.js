@@ -5,12 +5,18 @@ fetch('http://localhost:8080/movie/allMovies/desc')
     .then(data => {
         data.forEach(movie => {
             const rank = `<p>${movie.rank}</p>`;
-            const title = `<p>${movie.movieTitle}</p>`;
-            const score = `<p>${movie.score}</p>`;
+            const title = `<p><a href='../../../allMoviesById/allMoviesById.html?index=${movie.rank}'">${movie.movieTitle}</a></p>`;
+            let score;
+            if ((movie.score > 8 && movie.score < 9) || (movie.score > 9 && movie.score < 10)) score = `<p>${movie.score}</p>`;
+            else score = `<p>${movie.score}.0</p>`;
             const length = `<p>${movie.movieHours}h ${movie.movieMinutes}m</p>`;
             const year = `<p>${movie.releaseYear}</p>`;
             const rating = `<p>${movie.rating}</p>`;
-            const boxOffice = `<p>$${movie.boxOffice} Million</p>`;
+            let boxOffice;
+            if (movie.boxOffice >= 1 && movie.boxOffice < 1000) boxOffice = `<p>$${movie.boxOffice} Million</p>`;
+            else if (movie.boxOffice >= 1000) boxOffice = `<p>$${movie.boxOffice/1000} Billion</p>`;
+            else if (movie.boxOffice < 0) boxOffice = `<p>No Info</p>`
+            else boxOffice = `<p>$${Math.floor(movie.boxOffice*1000)},${Math.floor((movie.boxOffice*1000000)%1000)}</p>`;
             document.querySelector('#movieRank').insertAdjacentHTML('beforeend', rank);
             document.querySelector('#movieTitle').insertAdjacentHTML('beforeend', title);
             document.querySelector('#movieScore').insertAdjacentHTML('beforeend', score);

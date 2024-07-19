@@ -1,5 +1,6 @@
 package com.varun.mml.controller;
 
+import com.varun.mml.model.Movie;
 import com.varun.mml.model.MovieWrapper;
 import com.varun.mml.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +25,10 @@ public class MovieController {
     public ResponseEntity<List<MovieWrapper>> getAllMoviesDsc(){
         return movieService.getAllMoviesDesc();
     }
-
-    @GetMapping("allMovies/{id}")
-    public ResponseEntity<MovieWrapper> getMovieById(@PathVariable int id){
+    
+    @CrossOrigin(origins = "*")
+    @GetMapping("{id}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable int id){
         return movieService.getMovieById(id);
     }
 

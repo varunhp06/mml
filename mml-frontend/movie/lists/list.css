@@ -1,11 +1,68 @@
-#Banner{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 13%;
-    height: 13%;
+@font-face {
+    font-family: 'AGRevueCyr-Roman';
+    src: url('../../AGRevueCyrRomanMedium.woff2') format('woff2'),
+    url('../../AGRevueCyrRomanMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
-button{
+
+@font-face {
+    font-family: 'AGRevueCyr-Roman';
+    src: url('../../AGRevueCyrRomanMedium.woff2') format('woff2'),
+    url('../../AGRevueCyrRomanMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+#Switch{
+    font-family: AGRevueCyr-Roman;
+    background-color: #101010;
+    color: #E50913;
+    border: 0;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-size: 35px;
+    margin-bottom: 75px;
+}
+#Donate{
+    font-family: "serif";
+    background-color: #E50913;
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 725px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#LogIn{
+    font-family: "serif";
+    background-color: whitesmoke;
+    color: #101010;
+    font-size: 20px;
+    border-color: whitesmoke;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+#SignUp{
+    font-family: "serif";
+    background-color: #E50913;
+    color: whitesmoke;
+    font-size: 20px;
+    border-color: #E50913;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+#RankButton{
+    background-color: #E50913;
+    border: none;
+}
+#ScoreButton{
+    background-color: #E50913;
+    border: none;
+}
+#YearButton{
     background-color: #E50913;
     border: none;
 }
@@ -39,6 +96,9 @@ table{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 tr{
     text-align: left;
@@ -47,6 +107,7 @@ th{
     background-color: #E50913;
     color: #101010;
     text-align: center;
+    font-family: serif;
 }
 td{
     background-color: whitesmoke;
@@ -54,8 +115,139 @@ td{
     text-align: center;
     padding-left: 35px;
     padding-right: 35px;
+    font-family: serif;
 }
 #movieTitle{
     text-align: left;
     padding-left: 10px;
+    display: inline-block;
+}
+#category{
+    padding-bottom: 30px;
+}
+#searchBar{
+    height: 41px;
+    width: 377px;
+    background-color: #101010;
+    border-color: #E50913;
+    color: whitesmoke;
+}
+#magGlass{
+    margin-top: 12px;
+    margin-left: -30px;
+    color: whitesmoke;
+}
+#search{
+    display: flex;
+}
+#dropContent{
+    display: flex;
+}
+.dropRank, .dropScore, .dropYear {
+    background-color: #101010;
+    color: whitesmoke;
+    border-color: #E50913;
+    font-family: serif;
+    font-size: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.RankDrop, .ScoreDrop, .YearDrop {
+    position: relative;
+    display: inline-block;
+}
+.dropRankContent, .dropScoreContent, .dropYearContent{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+}
+.dropRankContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 91.5px;
+    padding-right: 91.5px;
+}
+.dropRankContent{
+    margin-left: 20px;
+}
+.dropScoreContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 96.5px;
+    padding-right: 96.5px;
+}
+.dropYearContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.dropRankContent a:hover, .dropScoreContent a:hover, .dropYearContent a:hover {
+    background-color: #E50913;
+    color: whitesmoke;
+}
+.RankDrop:hover .dropRankContent {display: block;}
+.ScoreDrop:hover .dropScoreContent {display: block;}
+.YearDrop:hover .dropYearContent {display: block;}
+.RankDrop:hover .dropRank {background-color: #E50913;}
+.ScoreDrop:hover .dropScore {background-color: #E50913;}
+.YearDrop:hover .dropYear {background-color: #E50913;}
+#dropSearch{
+    display: flex;
+    padding-bottom: 50px;
+}
+.dropRank{
+    margin-left: 20px;
+}
+.dropYear{
+    margin-right: 20px;
+}
+.user-cards{
+    margin-left: 855px;
+    margin-top: -49px;
+    position: absolute;
+}
+.card{
+    display: none;
+    border-bottom: 1px solid #101010;
+    width: 375px;
+    height: 80px;
+    background-color: whitesmoke;
+    color: #101010;
+}
+.movieName{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-family: "serif";
+    font-size: 15px;
+    text-align: left;
+}
+.movieRank{
+    font-family: "serif";
+    font-size: 20px;
+    text-align: left;
+    margin-left: 10px;
+}
+.movieImg{
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
+.card:hover {
+    background-color: #E50913;
+    color: whitesmoke;
 }
