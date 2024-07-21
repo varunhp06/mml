@@ -1,51 +1,3 @@
-function getUrlParameter(name){
-    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
-    let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-    let results = regex.exec(location.search);
-    return results == null ? '' : decodeURIComponent(results[1].replace(/\\+/g, ' '));
-}
-let rankNumber = getUrlParameter('index');
-fetch(`http://localhost:8080/tv/${rankNumber}`)
-    .then(res => {
-        return res.json();
-    })
-    .then(show => {
-        let rank;
-        if (show.rank < 10) rank = `<p>#00${show.rank}</p>`;
-        else if (show.rank > 9 && show.rank < 100) rank = `<p>#0${show.rank}</p>`;
-        else rank = `<p>#${show.rank}</p>`;
-        const title = `<p>${show.showTitle}</p>`;
-        let score;
-        if ((show.score > 8 && show.score < 9) || (show.score > 9 && show.score < 10)) score = `<p>${show.score}</p>`;
-        else score = `<p>${show.score}.0</p>`;
-        const length = `<p>${show.episodes} eps</p>`;
-        let year;
-        if (show.endYear != -1) year = `<p>${show.startYear}-${show.endYear}</p>`;
-        else year = `<p>${show.startYear}-TBD</p>`;
-        const rating = `<p>${show.rating}</p>`;
-        const synopsis = `<p>${show.synopsis}</p>`;
-        const genreOne = `<p>${show.genreOne}</p>`;
-        const genreTwo = `<p>${show.genreTwo}</p>`;
-        const language = `<p>${show.language}</p>`;
-        const imageLink = `<img src="${show.imageLink}" width="300" height="450" alt="poster">`;
-        const trailer = `<iframe src="${show.trailer}" allowfullscreen height="200" frameborder="0"></iframe>`;
-        document.querySelector('#showHeadTitle').insertAdjacentHTML('beforeend', show.showTitle);
-        document.querySelector('#showRank').insertAdjacentHTML('beforeend', rank);
-        document.querySelector('#showTitle').insertAdjacentHTML('beforeend', title);
-        document.querySelector('#showScore').insertAdjacentHTML('beforeend', score);
-        document.querySelector('#showLength').insertAdjacentHTML('beforeend', length);
-        document.querySelector('#showYear').insertAdjacentHTML('beforeend', year);
-        document.querySelector('#showRating').insertAdjacentHTML('beforeend', rating);
-        document.querySelector('#synopsis').insertAdjacentHTML('beforeend', synopsis);
-        document.querySelector('#genreOne').insertAdjacentHTML('beforeend', genreOne);
-        document.querySelector('#genreTwo').insertAdjacentHTML('beforeend', genreTwo);
-        document.querySelector('#language').insertAdjacentHTML('beforeend', language);
-        document.querySelector('#imageLink').insertAdjacentHTML('beforeend', imageLink);
-        document.querySelector('#trailer').insertAdjacentHTML('beforeend', trailer);
-
-    })
-    .catch(error => console.log(error));
-
 const userCardTemplate = document.querySelector("[data-user-template]");
 const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
@@ -111,6 +63,24 @@ fetch('http://localhost:8080/tv/allShows')
         return res.json();
     })
     .then(data => {
+        data.forEach(show=> {
+            const rank = `<p>${show.rank}</p>`;
+            const title = `<p><a href='../../../allShowsById/allShowsById.html?index=${show.rank}'">${show.showTitle}</a></p>`;
+            let score;
+            if ((show.score > 8 && show.score < 9) || (show.score > 9 && show.score < 10)) score = `<p>${show.score}</p>`;
+            else score = `<p>${show.score}.0</p>`;
+            const length = `<p>${show.episodes} eps</p>`;
+            let year;
+            if (show.endYear !== -1) year = `<p>${show.startYear}-${show.endYear}</p>`;
+            else year = `<p>${show.startYear}-TBD</p>`;
+            const rating = `<p>${show.rating}</p>`;
+            document.querySelector('#showRank').insertAdjacentHTML('beforeend', rank);
+            document.querySelector('#showTitle').insertAdjacentHTML('beforeend', title);
+            document.querySelector('#showScore').insertAdjacentHTML('beforeend', score);
+            document.querySelector('#showLength').insertAdjacentHTML('beforeend', length);
+            document.querySelector('#showYear').insertAdjacentHTML('beforeend', year);
+            document.querySelector('#showRating').insertAdjacentHTML('beforeend', rating);
+        })
         shows = data.map(show => {
             const card = userCardTemplate.content.cloneNode(true).children[0];
             const cardImg = card.querySelector("[data-src]");
@@ -121,13 +91,25 @@ fetch('http://localhost:8080/tv/allShows')
             cardRank.textContent = "#"+show.rank;
             userCardContainer.append(card);
             card.onclick = function(){
-                window.location.href = `allShowsById.html?index=${show.rank}`;
+                window.location.href = `../../../allShowsById/allShowsById.html?index=${show.rank}`;
             };
             return {title:show.showTitle, element:card};
         })
     })
     .catch(error => console.log(error));
 
+document.getElementById('RankButton').addEventListener("click", function(){
+    window.location.href = '../allShowsByRankDesc/allShowsByRankDesc.html';
+})
+
+document.getElementById('ScoreButton').addEventListener("click", function(){
+    window.location.href = '../../allShowsByScore/allShowsByScoreAsc/allShowsByScoreAsc.html';
+})
+
+document.getElementById('YearButton').addEventListener("click", function(){
+    window.location.href = '../../allShowsByStartYear/allShowsByStartYearAsc/allShowsByStartYearAsc.html';
+})
+
 document.getElementById('Switch').addEventListener("click", function(){
-    window.location.href = `../../movie/allMoviesById/allMoviesById.html?index=${rankNumber}`;
+    window.location.href = '../../../../movie/lists/allMoviesByRank/allMoviesByRankAsc/allMoviesByRankAsc.html';
 })

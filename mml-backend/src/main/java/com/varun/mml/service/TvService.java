@@ -1,6 +1,8 @@
 package com.varun.mml.service;
 
 import com.varun.mml.dao.TvDao;
+import com.varun.mml.dao.TvWrapperDao;
+import com.varun.mml.model.Tv;
 import com.varun.mml.model.TvWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,11 +15,13 @@ import java.util.List;
 @Service
 public class TvService {
     @Autowired
+    TvWrapperDao tvWrapperDao;
+    @Autowired
     TvDao tvDao;
 
     public ResponseEntity<List<TvWrapper>> getAllShows() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByRankAsc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByRankAsc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -27,7 +31,7 @@ public class TvService {
 
     public ResponseEntity<List<TvWrapper>> getAllShowsDesc() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByRankDesc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByRankDesc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -35,7 +39,7 @@ public class TvService {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
     }
 
-    public ResponseEntity<TvWrapper> getShowById(int id) {
+    public ResponseEntity<Tv> getShowById(int id) {
         try{
             return new ResponseEntity<>(tvDao.findById(id), HttpStatus.OK);
         }
@@ -47,7 +51,7 @@ public class TvService {
 
     public ResponseEntity<List<TvWrapper>> getAllShowsByScoreAsc() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByScoreAsc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByScoreAsc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -57,7 +61,7 @@ public class TvService {
 
     public ResponseEntity<List<TvWrapper>> getAllShowsByScoreDesc() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByScoreDesc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByScoreDesc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -67,7 +71,7 @@ public class TvService {
 
     public ResponseEntity<List<TvWrapper>> getAllShowsByStartYearAsc() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByStartYearAsc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByStartYearAsc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();
@@ -77,7 +81,7 @@ public class TvService {
 
     public ResponseEntity<List<TvWrapper>> getAllShowsByStartYearDesc() {
         try{
-            return new ResponseEntity<>(tvDao.findAllByOrderByStartYearDesc(), HttpStatus.OK);
+            return new ResponseEntity<>(tvWrapperDao.findAllByOrderByStartYearDesc(), HttpStatus.OK);
         }
         catch(Exception e){
             e.printStackTrace();

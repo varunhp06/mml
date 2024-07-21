@@ -28,6 +28,86 @@ fetch('http://localhost:8080/movie/allMovies/year/desc')
     })
     .catch(error => console.log(error));
 
+const userCardTemplate = document.querySelector("[data-user-template]");
+const userCardContainer = document.querySelector("[data-user-cards-container]");
+const searchInput = document.querySelector("[data-search]");
+let movies = [];
+searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.trim().toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+    let count = 0;
+    movies.forEach(movie => {
+        const title = movie.title.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+        let isVisible = title.includes(value);
+        movie.element.classList.toggle("hide", !isVisible);
+        movie.element.classList.toggle("show", isVisible);
+        if (isVisible) {
+            count++;
+        }
+        if (value === "") {
+            isVisible = !isVisible;
+            movie.element.classList.toggle("hide", !isVisible);
+            movie.element.classList.toggle("show", isVisible);
+        }
+        if (count > 5) {
+            movie.element.classList.add("hide");
+            movie.element.classList.remove("show");
+        }
+        document.addEventListener('click', function (event) {
+            if (!movie.element.contains(event.target) && event.target !== searchInput) {
+                movie.element.classList.add("hide");
+                movie.element.classList.remove("show");
+            }
+        })
+    });
+});
+
+searchInput.addEventListener('click', function () {
+    const value = searchInput.value.trim().toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+    let count = 0;
+    movies.forEach(movie => {
+        const title = movie.title.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+        const isVisible = title.includes(value);
+        movie.element.classList.toggle("hide", !isVisible);
+        movie.element.classList.toggle("show", isVisible);
+        if (isVisible) {
+            count++;
+        }
+        if (count > 5) {
+            movie.element.classList.add("hide");
+            movie.element.classList.remove("show");
+        }
+        document.addEventListener('click', function (event) {
+            if (!movie.element.contains(event.target) && event.target !== searchInput) {
+                movie.element.classList.add("hide");
+                movie.element.classList.remove("show");
+            }
+        })
+    });
+});
+
+fetch('http://localhost:8080/movie/allMovies')
+    .then(res => {
+        return res.json();
+    })
+    .then(data => {
+        console.log(data);
+        movies = data.map(movie => {
+            const card = userCardTemplate.content.cloneNode(true).children[0];
+            const cardImg = card.querySelector("[data-src]");
+            const cardName = card.querySelector("[data-name]");
+            const cardRank = card.querySelector("[data-rank]");
+            cardImg.src = movie.imageLink;
+            cardName.textContent = movie.movieTitle;
+            cardRank.textContent = "#"+movie.rank;
+            userCardContainer.append(card);
+            card.onclick = function(){
+                window.location.href = `../../../allMoviesById/allMoviesById.html?index=${movie.rank}`;
+            };
+            return {title:movie.movieTitle, element:card};
+        })
+    })
+    .catch(error => console.log(error));
+
 document.getElementById('RankButton').addEventListener("click", function(){
     window.location.href = '../../allMoviesByRank/allMoviesByRankAsc/allMoviesByRankAsc.html';
 })
@@ -38,4 +118,8 @@ document.getElementById('ScoreButton').addEventListener("click", function(){
 
 document.getElementById('YearButton').addEventListener("click", function(){
     window.location.href = '../allMoviesByYearAsc/allMoviesByYearAsc.html';
+})
+
+document.getElementById('Switch').addEventListener("click", function(){
+    window.location.href = '../../../../tv/lists/allShowsByStartYear/allShowsByStartYearDesc/allShowsByStartYearDesc.html';
 })

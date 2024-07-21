@@ -3,29 +3,60 @@ const userCardContainer = document.querySelector("[data-user-cards-container]");
 const searchInput = document.querySelector("[data-search]");
 let movies = [];
 searchInput.addEventListener("input", (e) => {
-    const value = e.target.value.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+    const value = e.target.value.trim().toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+    let count = 0;
     movies.forEach(movie => {
-        let isVisible = movie.title.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "").includes(value);
+        const title = movie.title.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+        let isVisible = title.includes(value);
         movie.element.classList.toggle("hide", !isVisible);
         movie.element.classList.toggle("show", isVisible);
+        if (isVisible) {
+            count++;
+        }
         if (value === "") {
             isVisible = !isVisible;
             movie.element.classList.toggle("hide", !isVisible);
             movie.element.classList.toggle("show", isVisible);
+        }
+        if (count > 5) {
+            movie.element.classList.add("hide");
+            movie.element.classList.remove("show");
         }
         document.addEventListener('click', function (event) {
             if (!movie.element.contains(event.target) && event.target !== searchInput) {
                 movie.element.classList.add("hide");
                 movie.element.classList.remove("show");
             }
-            else if(event.target === searchInput){
-                movie.element.classList.toggle("hide", !isVisible);
-                movie.element.classList.toggle("show", isVisible);
-            }
-        });
-    })
+        })
+    });
 });
 
+searchInput.addEventListener('click', function () {
+    const value = searchInput.value.trim().toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+    let count = 0;
+
+    movies.forEach(movie => {
+        const title = movie.title.toLowerCase().replaceAll(' ', '').replaceAll(':', '').replaceAll('-', '').replaceAll("'", "");
+        const isVisible = title.includes(value);
+
+        movie.element.classList.toggle("hide", !isVisible);
+        movie.element.classList.toggle("show", isVisible);
+
+        if (isVisible) {
+            count++;
+        }
+        if (count > 5) {
+            movie.element.classList.add("hide");
+            movie.element.classList.remove("show");
+        }
+        document.addEventListener('click', function (event) {
+            if (!movie.element.contains(event.target) && event.target !== searchInput) {
+                movie.element.classList.add("hide");
+                movie.element.classList.remove("show");
+            }
+        })
+    });
+});
 
 fetch('http://localhost:8080/movie/allMovies')
     .then(res => {
@@ -81,4 +112,8 @@ document.getElementById('ScoreButton').addEventListener("click", function(){
 
 document.getElementById('YearButton').addEventListener("click", function(){
     window.location.href = '../../allMoviesByYear/allMoviesByYearAsc/allMoviesByYearAsc.html';
+})
+
+document.getElementById('Switch').addEventListener("click", function(){
+    window.location.href = '../../../../tv/lists/allShowsByRank/allShowsByRankAsc/allShowsByRankAsc.html';
 })

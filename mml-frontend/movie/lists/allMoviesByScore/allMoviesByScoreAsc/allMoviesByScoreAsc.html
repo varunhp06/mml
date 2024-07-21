@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Movies Scored Lowest to Highest</title>
-    <link rel="icon" type="image/x-icon" href="../../../../favicon.png">
+    <link rel="icon" type="image/x-icon" href="../../../../faviconMovies.png">
     <link rel="stylesheet" href="../../list.css">
     <link rel="stylesheet" href="../../list.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,11 +39,19 @@
                     </div>
                 </div>
             </div>
-            <form id="search">
-                <input id="searchBar" type="text">
-                <i id="magGlass" class="fa-solid fa-magnifying-glass"></i>
-            </form>
+            <input id="searchBar" type="search" data-search>
+            <i id="magGlass" class="fa-solid fa-magnifying-glass"></i>
         </div>
+        <div class="user-cards" data-user-cards-container></div>
+        <template data-user-template>
+            <button class="card" id="redirect">
+                <img width=45 height=70 class="movieImg" data-src>
+                <div id="CardNameRank">
+                    <div class="movieName" data-name></div>
+                    <div class="movieRank" data-rank></div>
+                </div>
+            </button>
+        </template>
     </div>
 </head>
 <body>

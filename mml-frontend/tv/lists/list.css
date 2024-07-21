@@ -1,0 +1,269 @@
+@font-face {
+    font-family: 'AGRevueCyr-Roman';
+    src: url('../../AGRevueCyrRomanMedium.woff2') format('woff2'),
+    url('../../AGRevueCyrRomanMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AGRevueCyr-Roman';
+    src: url('../../AGRevueCyrRomanMedium.woff2') format('woff2'),
+    url('../../AGRevueCyrRomanMedium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+#Switch{
+    font-family: AGRevueCyr-Roman;
+    background-color: #101010;
+    color: #1A98FF;
+    border: 0;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 35px;
+    margin-bottom: 75px;
+}
+#Switch:hover{
+    background-color: #E50913;
+    color: #101010;
+}
+#Donate{
+    font-family: "serif";
+    background-color: #1A98FF;
+    color: whitesmoke;
+    font-size: 20px;
+    margin-left: 735px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#Donate:hover{
+    background-color: whitesmoke;
+    color: #1A98FF;
+}
+#LogIn{
+    font-family: "serif";
+    background-color: whitesmoke;
+    color: #101010;
+    font-size: 20px;
+    border-color: whitesmoke;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+#LogIn:hover{
+    background-color: #101010;
+    color: whitesmoke;
+}
+#SignUp{
+    font-family: "serif";
+    background-color: #1A98FF;
+    color: whitesmoke;
+    font-size: 20px;
+    border-color: #1A98FF;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 20px;
+}
+#SignUp:hover{
+    background-color: whitesmoke;
+    color: #1A98FF;
+}
+#RankButton{
+    background-color: #1A98FF;
+    border: none;
+}
+#ScoreButton{
+    background-color: #1A98FF;
+    border: none;
+}
+#YearButton{
+    background-color: #1A98FF;
+    border: none;
+}
+h1{
+    font-family: Bebas Neue;
+    font-size: 100px;
+    padding-left: 20px;
+    margin: 0;
+}
+h2{
+    margin: 0;
+    font-family: "Bebas Neue";
+    font-size: 50px;
+    padding-left: 35px;
+    color: whitesmoke;
+}
+
+#Filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    color: white;
+
+}
+body{
+    background-color: #101010;
+    color: #1A98FF;
+}
+table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+tr{
+    text-align: left;
+}
+th{
+    background-color: #1A98FF;
+    color: #101010;
+    text-align: center;
+    font-family: serif;
+}
+td{
+    background-color: whitesmoke;
+    color: #101010;
+    text-align: center;
+    padding-left: 55px;
+    padding-right: 55px;
+    font-family: serif;
+}
+#showTitle{
+    text-align: left;
+    padding-left: 10px;
+    display: inline-block;
+}
+#category{
+    padding-bottom: 30px;
+}
+#searchBar{
+    height: 41px;
+    width: 377px;
+    background-color: #101010;
+    border-color: #1A98FF;
+    color: whitesmoke;
+}
+#magGlass{
+    margin-top: 12px;
+    margin-left: -30px;
+    color: whitesmoke;
+}
+#search{
+    display: flex;
+}
+#dropContent{
+    display: flex;
+}
+.dropRank, .dropScore, .dropYear {
+    background-color: #101010;
+    color: whitesmoke;
+    border-color: #1A98FF;
+    font-family: serif;
+    font-size: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.RankDrop, .ScoreDrop, .YearDrop {
+    position: relative;
+    display: inline-block;
+}
+.dropRankContent, .dropScoreContent, .dropYearContent{
+    display: none;
+    position: absolute;
+    background-color: whitesmoke;
+}
+.dropRankContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 91.5px;
+    padding-right: 91.5px;
+}
+.dropRankContent{
+    margin-left: 20px;
+}
+.dropScoreContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 96.5px;
+    padding-right: 96.5px;
+}
+.dropYearContent a{
+    color: #101010;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.dropRankContent a:hover, .dropScoreContent a:hover, .dropYearContent a:hover {
+    background-color: #1A98FF;
+    color: whitesmoke;
+}
+.RankDrop:hover .dropRankContent {display: block;}
+.ScoreDrop:hover .dropScoreContent {display: block;}
+.YearDrop:hover .dropYearContent {display: block;}
+.RankDrop:hover .dropRank {background-color: #1A98FF;}
+.ScoreDrop:hover .dropScore {background-color: #1A98FF;}
+.YearDrop:hover .dropYear {background-color: #1A98FF;}
+#dropSearch{
+    display: flex;
+    padding-bottom: 50px;
+}
+.dropRank{
+    margin-left: 20px;
+}
+.dropYear{
+    margin-right: 20px;
+}
+.user-cards{
+    margin-left: 855px;
+    margin-top: -49px;
+    position: absolute;
+}
+.card{
+    display: none;
+    border-bottom: 1px solid #101010;
+    width: 375px;
+    height: 80px;
+    background-color: whitesmoke;
+    color: #101010;
+}
+.showName{
+    margin-top: 5px;
+    margin-left: 5px;
+    font-family: "serif";
+    font-size: 15px;
+    text-align: left;
+}
+.showRank{
+    font-family: "serif";
+    font-size: 20px;
+    text-align: left;
+    margin-left: 10px;
+}
+.showImg{
+    margin-top: 2px;
+    margin-left: 2px;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: flex;
+}
+.card:hover {
+    background-color: #1A98FF;
+    color: whitesmoke;
+}

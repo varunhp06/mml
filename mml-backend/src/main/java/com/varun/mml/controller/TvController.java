@@ -1,5 +1,6 @@
 package com.varun.mml.controller;
 
+import com.varun.mml.model.Tv;
 import com.varun.mml.model.TvWrapper;
 import com.varun.mml.service.TvService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class TvController {
     @Autowired
     TvService tvService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("allShows")
     public ResponseEntity<List<TvWrapper>> getAllShows(){
         return tvService.getAllShows();
@@ -25,8 +27,9 @@ public class TvController {
         return tvService.getAllShowsDesc();
     }
 
-    @GetMapping("allShows/{id}")
-    public ResponseEntity<TvWrapper> getShowById(@PathVariable int id){
+    @CrossOrigin(origins = "*")
+    @GetMapping("{id}")
+    public ResponseEntity<Tv> getShowById(@PathVariable int id){
         return tvService.getShowById(id);
     }
 

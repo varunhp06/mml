@@ -16,11 +16,12 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
+    @CrossOrigin(origins = "*")
     @GetMapping("allMovies")
     public ResponseEntity<List<MovieWrapper>> getAllMovies(){
         return movieService.getAllMovies();
     }
-
+    
     @GetMapping("allMovies/desc")
     public ResponseEntity<List<MovieWrapper>> getAllMoviesDsc(){
         return movieService.getAllMoviesDesc();

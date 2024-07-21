@@ -16,13 +16,13 @@
     font-display: swap;
 }
 body{
-    color: #E50913;
+    color: #1A98FF;
     background-color: #101010;
 }
 #Switch{
     font-family: AGRevueCyr-Roman;
     background-color: #101010;
-    color: #E50913;
+    color: #1A98FF;
     border: 0;
     margin-left: 20px;
     margin-top: 20px;
@@ -30,21 +30,21 @@ body{
     margin-bottom: 75px;
 }
 #Switch:hover{
-    background-color: #1A98FF;
+    background-color: #E50913;
     color: #101010;
 }
 #Donate{
     font-family: "serif";
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
     font-size: 20px;
-    margin-left: 725px;
+    margin-left: 735px;
     padding-left: 20px;
     padding-right: 20px;
 }
 #Donate:hover{
     background-color: whitesmoke;
-    color: #E50913;
+    color: #1A98FF;
 }
 #LogIn{
     font-family: "serif";
@@ -62,19 +62,19 @@ body{
 }
 #SignUp{
     font-family: "serif";
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
     font-size: 20px;
-    border-color: #E50913;
+    border-color: #1A98FF;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 20px;
 }
 #SignUp:hover{
     background-color: whitesmoke;
-    color: #E50913;
+    color: #1A98FF;
 }
-#movieTitle{
+#showTitle{
     font-family: "Bebas Neue", serif;
     font-size: 50px;
     padding-left: 65px;
@@ -89,7 +89,7 @@ body{
 #Score{
     margin-left: 100px;
     font-size: 45px;
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
     border: 0;
     padding-left: 10px;
@@ -102,18 +102,18 @@ body{
     font-family: "Bebas Neue";
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
     border: 0;
 }
-#movieScore{
+#showScore{
     margin-left: 130px;
     font-size: 45px;
     font-family: "Bebas Neue";
     color: whitesmoke;
     line-height: 0px;
 }
-#movieRank{
+#showRank{
     font-size: 45px;
     font-family: "Bebas Neue";
     color: whitesmoke;
@@ -123,7 +123,7 @@ body{
 #trailer{
     margin-right: 65px;
 }
-#movieSynopsis{
+#showSynopsis{
     margin-top: 25px;
     margin-bottom: 15px;
     margin-left: 100px;
@@ -131,7 +131,7 @@ body{
     font-family: "Bebas Neue";
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
     border: 0;
 }
@@ -151,7 +151,7 @@ body{
     color: #101010;
     border: 0;
 }
-#movieLength{
+#showLength{
     margin-top: 25px;
     margin-left: 15px;
     font-size: 20px;
@@ -175,7 +175,7 @@ body{
 #YearAlign{
     display: flex;
 }
-#movieYear{
+#showYear{
     margin-top: 25px;
     margin-left: 15px;
     font-size: 20px;
@@ -196,49 +196,7 @@ body{
 #RatingAlign{
     display: flex;
 }
-#movieRating{
-    margin-top: 25px;
-    margin-left: 15px;
-    font-size: 20px;
-    color: whitesmoke;
-    font-family: "serif";
-}
-#BoxOffice{
-    font-size: 20px;
-    font-family: "Bebas Neue";
-    margin-top: 25px;
-    margin-left: 65px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: whitesmoke;
-    color: #101010;
-    border: 0;
-}
-#BOAlign{
-    display: flex;
-}
-#movieBoxOffice{
-    margin-top: 25px;
-    margin-left: 15px;
-    font-size: 20px;
-    color: whitesmoke;
-    font-family: "serif";
-}
-#directorButton{
-    font-size: 20px;
-    font-family: "Bebas Neue";
-    margin-top: 25px;
-    margin-left: 65px;
-    padding-left: 10px;
-    padding-right: 10px;
-    background-color: whitesmoke;
-    color: #101010;
-    border: 0;
-}
-#DirectorAlign{
-    display: flex;
-}
-#director{
+#showRating{
     margin-top: 25px;
     margin-left: 15px;
     font-size: 20px;
@@ -314,7 +272,7 @@ body{
     height: 41px;
     width: 377px;
     background-color: #101010;
-    border-color: #E50913;
+    border-color: #1A98FF;
     color: whitesmoke;
 }
 #magGlass{
@@ -331,7 +289,7 @@ body{
 .dropRank, .dropScore, .dropYear {
     background-color: #101010;
     color: whitesmoke;
-    border-color: #E50913;
+    border-color: #1A98FF;
     font-family: serif;
     font-size: 30px;
     padding-left: 80px;
@@ -377,16 +335,16 @@ body{
     padding-right: 80px;
 }
 .dropRankContent a:hover, .dropScoreContent a:hover, .dropYearContent a:hover {
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
 
 }
 .RankDrop:hover .dropRankContent {display: block;}
 .ScoreDrop:hover .dropScoreContent {display: block;}
 .YearDrop:hover .dropYearContent {display: block;}
-.RankDrop:hover .dropRank {background-color: #E50913;}
-.ScoreDrop:hover .dropScore {background-color: #E50913;}
-.YearDrop:hover .dropYear {background-color: #E50913;}
+.RankDrop:hover .dropRank {background-color: #1A98FF;}
+.ScoreDrop:hover .dropScore {background-color: #1A98FF;}
+.YearDrop:hover .dropYear {background-color: #1A98FF;}
 #dropSearch{
     display: flex;
     padding-bottom: 50px;
@@ -413,20 +371,20 @@ body{
     background-color: whitesmoke;
     color: #101010;
 }
-.movieName{
+.showName{
     margin-top: 5px;
     margin-left: 5px;
     font-family: "serif";
     font-size: 15px;
     text-align: left;
 }
-.movieRank{
+.showRank{
     font-family: "serif";
     font-size: 20px;
     text-align: left;
     margin-left: 10px;
 }
-.movieImg{
+.showImg{
     margin-top: 2px;
     margin-left: 2px;
 }
@@ -437,6 +395,6 @@ body{
     display: flex;
 }
 .card:hover {
-    background-color: #E50913;
+    background-color: #1A98FF;
     color: whitesmoke;
 }
