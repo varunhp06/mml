@@ -20,10 +20,14 @@
     background-color: #101010;
     color: #E50913;
     border: 0;
-    padding-left: 20px;
-    padding-top: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
     font-size: 35px;
     margin-bottom: 75px;
+}
+#Switch:hover{
+    background-color: #1A98FF;
+    color: #101010;
 }
 #Donate{
     font-family: "serif";
@@ -33,6 +37,10 @@
     margin-left: 725px;
     padding-left: 20px;
     padding-right: 20px;
+}
+#Donate:hover{
+    background-color: whitesmoke;
+    color: #E50913;
 }
 #LogIn{
     font-family: "serif";
@@ -44,6 +52,10 @@
     padding-right: 20px;
     margin-left: 20px;
 }
+#LogIn:hover{
+    background-color: #101010;
+    color: whitesmoke;
+}
 #SignUp{
     font-family: "serif";
     background-color: #E50913;
@@ -53,6 +65,10 @@
     padding-left: 20px;
     padding-right: 20px;
     margin-left: 20px;
+}
+#SignUp:hover{
+    background-color: whitesmoke;
+    color: #E50913;
 }
 #RankButton{
     background-color: #E50913;
