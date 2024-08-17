@@ -31,7 +31,7 @@ application:
   name: mml
   security:
     jwt:
-      secret-key: 1ec12gt12111m8d12k01o1o114zdjyg1km1lu7wy01w912zsyi
+      secret-key: 5DA45DD3B6FA22C85EEF2FBB95FC3
       expiration: 86400000
   mailing:
     frontend:

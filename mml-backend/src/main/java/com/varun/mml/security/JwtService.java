@@ -55,10 +55,10 @@ public class JwtService {
     ) {
         var authhorities = userDetails.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList();
         return Jwts.builder()
-                .setClaims(extraClaims)
-                .setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + jwtExpiration))
+                .claims(extraClaims)
+                .subject(userDetails.getUsername())
+                .issuedAt(new Date(System.currentTimeMillis()))
+                .expiration(new Date(System.currentTimeMillis() + jwtExpiration))
                 .claim("authorities", authhorities)
                 .signWith(getSignInKey())
                 .compact();

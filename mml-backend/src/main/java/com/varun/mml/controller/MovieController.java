@@ -6,10 +6,7 @@ import com.varun.mml.movie.MovieRequest;
 import com.varun.mml.service.MovieService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 

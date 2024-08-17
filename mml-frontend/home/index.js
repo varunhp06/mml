@@ -7,3 +7,6 @@ document.getElementById('show').addEventListener("click", function(){
 document.getElementById('LogIn').addEventListener("click", function(){
     window.location = `http://localhost:8080/login`;
 })
+document.getElementById('LogIn').addEventListener("click", function(){
+    window.location = `http://localhost:8080/login`;
+})
