@@ -4,21 +4,24 @@ import com.varun.mml.dao.MovieDao;
 import com.varun.mml.model.Movie;
 import com.varun.mml.model.MovieWrapper;
 import com.varun.mml.dao.MovieWrapperDao;
-import com.varun.mml.model.TvWrapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.varun.mml.movie.MovieMapper;
+import com.varun.mml.movie.MovieRequest;
+import com.varun.mml.user.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class MovieService {
-    @Autowired
-    MovieWrapperDao movieWrapperDao;
-    @Autowired
-    MovieDao movieDao;
+    private final MovieWrapperDao movieWrapperDao;
+    private final MovieDao movieDao;
+    private final MovieMapper movieMapper;
 
     public ResponseEntity<List<MovieWrapper>> getAllMovies() {
         try{
@@ -88,5 +91,19 @@ public class MovieService {
             e.printStackTrace();
         }
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
+    }
+
+    public Integer save(MovieRequest request, Authentication connectedUser) {
+        User user = ((User) connectedUser.getPrincipal());
+        Movie movie = movieMapper.toMovie(request);
+        List<User> list = movie.getUsers();
+        list.add(user);
+        movie.setUsers(list);
+        return movieDao.save(movie).getRank();
+    }
+
+    public ResponseEntity<List<Movie>> getAllMoviesByOwner(Authentication connectedUser) {
+        User user = (User)connectedUser.getPrincipal();
+        return new ResponseEntity<>(user.getMovies(), HttpStatus.OK);
     }
 }

@@ -1,11 +1,19 @@
 package com.varun.mml.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import lombok.Data;
+import com.varun.mml.user.User;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Movie {
     @Id
     private int rank;
@@ -24,4 +32,6 @@ public class Movie {
     private String imageLink;
     private String releaseDate;
     private String trailer;
+    @ManyToMany(mappedBy = "movies")
+    private List<User> users;
 }

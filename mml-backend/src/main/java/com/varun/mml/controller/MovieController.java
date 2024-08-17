@@ -2,19 +2,26 @@ package com.varun.mml.controller;
 
 import com.varun.mml.model.Movie;
 import com.varun.mml.model.MovieWrapper;
+import com.varun.mml.movie.MovieRequest;
 import com.varun.mml.service.MovieService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("movie")
 public class MovieController {
-    @Autowired
-    MovieService movieService;
+
+    private final MovieService movieService;
 
     @CrossOrigin(origins = "*")
     @GetMapping("allMovies")
@@ -51,5 +58,20 @@ public class MovieController {
     @GetMapping("allMovies/year/desc")
     public ResponseEntity<List<MovieWrapper>> getAllMoviesByYearDesc(){
         return movieService.getAllMoviesByYearDesc();
+    }
+
+    @PostMapping
+    public ResponseEntity<Integer> addMovie(
+            @RequestBody @Valid MovieRequest request,
+            Authentication connectedUser
+    ){
+        return ResponseEntity.ok(movieService.save(request, connectedUser));
+    }
+
+    @GetMapping("/owner")
+    public ResponseEntity<List<Movie>> getAllMoviesByOwner(
+            Authentication connectedUser
+    ){
+        return movieService.getAllMoviesByOwner(connectedUser);
     }
 }

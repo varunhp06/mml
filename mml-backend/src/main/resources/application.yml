@@ -1,0 +1,40 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    password: Win@1234!
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  mail:
+    host: localhost
+    port: 1025
+    username: mml
+    password: mml
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enable: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+application:
+  name: mml
+  security:
+    jwt:
+      secret-key: 1ec12gt12111m8d12k01o1o114zdjyg1km1lu7wy01w912zsyi
+      expiration: 86400000
+  mailing:
+    frontend:
+      activation-url: http://localhost:3000/activate-account
+springdoc:
+  default-produces-media-type: application/json
